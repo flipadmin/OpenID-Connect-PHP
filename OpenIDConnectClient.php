@@ -374,6 +374,31 @@ class OpenIDConnectClient
         return $this->providerConfig[$param];
     }
 
+    /**
+     * Returns current well known.
+     *
+     * @return object
+     *
+     */
+    public function getWellKnown() {
+        return $this->wellKnown;
+    }
+
+    /**
+     * Sets current well known
+     *
+     * @param $wellKnown object (obtained by getWellKnown() previosly)
+     * @throws OpenIDConnectClientException
+     * @return void
+     *
+     */
+    public function setWellKnown($wellKnown) {
+        if (!is_object($wellKnown)) {
+            throw new OpenIDConnectClientException("The wellKnown must be an object.");
+        }
+        $this->wellKnown = $wellKnown;
+    }
+
 
     /**
      * @param $url Sets redirect URL for auth flow
